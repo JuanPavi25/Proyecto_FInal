@@ -4,9 +4,11 @@ const Footer = () => {
     return (
         <footer>
             <div className="container">
-                <ul>
-                    <li className="ps-2 pb-3">¿Preguntas? Llama al <a href="">900-759-106</a></li>
-                </ul>
+                    <ul>
+                        <li className="ps-2 pb-3">
+                            ¿Preguntas? Llama al <a href="tel:0180051915">01 800 519 1570</a> (sin cargo)
+                        </li>
+                    </ul>
 
                 <div className="row">
                     <div className="col-md-3 col-6">
