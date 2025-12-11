@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/MainPage.css'
 import Footer from '../components/Footer'
+import MainNavbar from '../components/MainNavbar'
 
 const MainPage = () => {
     const navigate = useNavigate()
@@ -301,206 +302,7 @@ const MainPage = () => {
 
     return (
         <>
-            {/* Navbar */}
-            <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-black">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#home">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-                            height="30"
-                            alt="Netflix Logo"
-                            loading="lazy"
-                        />
-                    </a>
-
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <i className="fas fa-bars"></i>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#home">
-                                    Inicio
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#series">
-                                    Series
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#accion">
-                                    Películas
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#recientes">
-                                    Recién Añadido
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Mi lista
-                                </a>
-                            </li>
-                        </ul>
-
-                        <form className="d-flex input-group w-auto">
-                            <input
-                                type="search"
-                                className="form-control bg-dark border-0 text-white-50"
-                                placeholder="Búsqueda"
-                                aria-label="Buscar"
-                            />
-                            <button className="bg-black border-0">
-                                <span className="input-group-text border-0 bg-black">
-                                    <i className="fas fa-search text-white"></i>
-                                </span>
-                            </button>
-                        </form>
-
-                        <ul className="navbar-nav mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#niños">
-                                    Niños
-                                </a>
-                            </li>
-
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle hidden-arrow"
-                                    href="#"
-                                    id="notificationsDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    <i className="fas fa-bell">
-                                        <span className="position-absolute top-5 start-80 translate-middle badge rounded-pill badge-dark">
-                                            {notifications.length}
-                                            <span className="visually-hidden"></span>
-                                        </span>
-                                    </i>
-                                </a>
-
-                                <ul
-                                    className="dropdown-menu dropdown-menu-end notifications-list p-3 scrollable-dropdown"
-                                    aria-labelledby="notificationsDropdown"
-                                >
-                                    {notifications.map((notif, idx) => (
-                                        <li key={notif.id}>
-                                            <div className="row">
-                                                <div className="col-md-5">
-                                                    <img
-                                                        src={notif.image}
-                                                        height="80"
-                                                        width="140"
-                                                        className="d-block"
-                                                        alt={notif.subtitle}
-                                                        loading="lazy"
-                                                    />
-                                                </div>
-                                                <div className="col-md">
-                                                    <p className="h6 mb-1">{notif.title}</p>
-                                                    <p className="h5 mb-1">{notif.subtitle}</p>
-                                                    <span className="small">{notif.date}</span>
-                                                </div>
-                                            </div>
-                                            {idx < notifications.length - 1 && (
-                                                <hr className="dropdown-divider bg-white mt-2" />
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle hidden-arrow"
-                                    href="#"
-                                    id="userDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    <img
-                                        src="https://mdbootstrap.com/img/Photos/Avatars/img%20(2).jpg"
-                                        className="rounded-circle img-fluid"
-                                        height="25"
-                                        width="25"
-                                        alt="User Avatar"
-                                    />
-                                </a>
-
-                                <ul className="dropdown-menu dropdown-menu-end p-3" aria-labelledby="userDropdown">
-                                    <li className="dropdown-item my-2 d-flex align-items-center">
-                                        <img
-                                            src="https://mdbootstrap.com/img/Photos/Avatars/img%20(4).jpg"
-                                            className="rounded-circle img-fluid me-1"
-                                            height="25"
-                                            width="25"
-                                            alt="Avatar 1"
-                                        />
-                                        <span>Juan Camilo</span>
-                                    </li>
-                                    <li className="dropdown-item my-2 d-flex align-items-center">
-                                        <img
-                                            src="https://mdbootstrap.com/img/Photos/Avatars/img%20(6).jpg"
-                                            className="rounded-circle img-fluid me-1"
-                                            height="25"
-                                            width="25"
-                                            alt="Avatar 2"
-                                        />
-                                        <span>Christian</span>
-                                    </li>
-                                    <li className="dropdown-item my-2 d-flex align-items-center">
-                                        <img
-                                            src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
-                                            className="rounded-circle img-fluid me-1"
-                                            height="25"
-                                            width="25"
-                                            alt="Avatar 3"
-                                        />
-                                        <span>Baljeet</span>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#profiles">
-                                            Adm. Perfiles
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <hr className="dropdown-divider bg-white" />
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#account">
-                                            Cuenta
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#help">
-                                            Ayuda
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button className="dropdown-item" onClick={handleLogout}>
-                                            Cerrar Sesión
-                                        </button>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <MainNavbar notifications={notifications} onLogout={handleLogout} />
 
             {/* Main Carousel */}
             <div id="mainCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -538,8 +340,8 @@ const MainPage = () => {
             <MovieSection title="Recién Añadidos" id="recientes" movies={moviesData.series.slice(0, 9)} />
             <MovieSection title="Niños" id="niños" movies={moviesData.kids} />
 
-            <Footer/>
-            
+            <Footer />
+
         </>
     )
 }

@@ -111,31 +111,65 @@ section p {
 /* ================================
    FORMULARIOS / INPUTS
 ================================ */
+
 input, select {
+   
    background-color: var(--darkBackground) !important;
    color: var(--lightGray) !important;
    border-radius: 5px !important;
    padding: 5px !important;
 }
 
+select{
+   width: 125px !important;
+}
+
 .form-select {
-   border: 1px solid gray;
-   width: auto ;
+
+   border: 1px solid gray !important;
+   width: auto !important;
  
 }
 
+form{
+   width: 320px !important;
+   margin-right: 10px !important;
+}
+
 option {
-   color: black;
-   background-color: white;
+   color: black !important;
+   background-color: white !important;
+}
+
+/* Solución para autofill sin fondo blanco */
+input:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0 1000px var(--darkBackground) inset !important;
+   -webkit-text-fill-color: var(--white) !important;
+   border: 1px solid var(--red) !important;
+}
+
+input:-webkit-autofill:focus {
+   -webkit-box-shadow: 0 0 0 1000px var(--darkBackground) inset !important;
+   -webkit-text-fill-color: var(--white) !important;
+   border: 1px solid var(--red) !important;
+}
+
+/* Específico para tipos de input comunes */
+input[type="email"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0 30px var(--darkBackground) inset !important;
+   -webkit-text-fill-color: var(--white) !important;
+   border: 1px solid var(--red) !important;
 }
 
 /* ================================
    BOTONES
 ================================ */
 .top-sign-in {
-   background-color: var(--red);
-   width: 130px;
-   height: 30px;
+   background-color: var(--red) !important;
+   width: auto !important;
+   height: auto;
    padding: 0;
 }
 
@@ -279,4 +313,13 @@ footer a {
 
 @media (max-width: 425px) {
    .layer h1 { font-size: 34px; }
+}
+
+/* Override: asegurar que las preguntas del FAQ no estén en mayúsculas */
+.faq .btn,
+.faq .btn * {
+  text-transform: none !important;
+}
+.faq .card {
+  text-transform: none !important;
 }

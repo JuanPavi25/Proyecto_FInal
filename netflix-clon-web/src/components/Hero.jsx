@@ -25,14 +25,15 @@ const Hero = ({ email, setEmail, onStart }) => {
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="form-control"
+                                    className="bg-dark"
                                     placeholder="Dirección de correo"
                                     aria-label="Dirección de correo electrónico"
+                                    autoComplete="off"
                                     required
                                 />
 
-                                <button type="submit" onClick={onStart} className="btn ms-2 text-white text-center fw-bold fs-4">
-                                    Empezar <i className="bi bi-chevron-right text-white ms-2" aria-hidden="true"></i>
+                                <button type="submit" onClick={onStart} className="btn ms-2 text-white text-center text-capitalize fw-bold fs-4">
+                                    Empezar
                                 </button>
                             </div>
                         </div>
