@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<MainPage />} />
-
       </Routes>
     </Router>
   )
