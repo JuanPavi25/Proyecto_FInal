@@ -42,8 +42,6 @@ const Hero = ({ email, setEmail, onStart }) => {
                     </div>
                 </div>
             </div>
-
-            {/* Features - these stay minimal here; can be moved to separate components later */}
         </>
     )
 }
