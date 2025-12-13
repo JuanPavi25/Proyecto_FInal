@@ -24,7 +24,7 @@ export default function MainNavbar({ notifications = [], onLogout = () => { } })
     return (
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-black">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#home" onClick={(e) => { e.preventDefault(); navigate('/') }}>
+                <a className="navbar-brand" href="#home" onClick={(e) => { e.preventDefault(); navigate('/main') }}>
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
                         height="30"
@@ -48,7 +48,7 @@ export default function MainNavbar({ notifications = [], onLogout = () => { } })
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#home" onClick={(e) => { e.preventDefault(); navigate('/') }}>
+                            <a className="nav-link active" aria-current="page" href="#home" onClick={(e) => { e.preventDefault(); navigate('/main') }}>
                                 Inicio
                             </a>
                         </li>
