@@ -1,10 +1,30 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function MainNavbar({ notifications = [], onLogout = () => { } }) {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const goToSection = (e, sectionId) => {
+        e.preventDefault()
+        const scrollToId = () => {
+            const el = document.getElementById(sectionId)
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+
+        if (location.pathname !== '/main') {
+            navigate('/main')
+            // wait a bit for the page to render, then scroll
+            setTimeout(scrollToId, 300)
+        } else {
+            scrollToId()
+        }
+    }
+
     return (
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-black">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#home">
+                <a className="navbar-brand" href="#home" onClick={(e) => { e.preventDefault(); navigate('/') }}>
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
                         height="30"
@@ -28,22 +48,22 @@ export default function MainNavbar({ notifications = [], onLogout = () => { } })
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#home">
+                            <a className="nav-link active" aria-current="page" href="#home" onClick={(e) => { e.preventDefault(); navigate('/') }}>
                                 Inicio
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#series">
+                            <a className="nav-link" href="#series" onClick={(e) => goToSection(e, 'series')}>
                                 Series
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#accion">
+                            <a className="nav-link" href="#accion" onClick={(e) => goToSection(e, 'accion')}>
                                 Películas
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#recientes">
+                            <a className="nav-link" href="#recientes" onClick={(e) => goToSection(e, 'recientes')}>
                                 Recién Añadido
                             </a>
                         </li>
@@ -70,7 +90,7 @@ export default function MainNavbar({ notifications = [], onLogout = () => { } })
 
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" href="#niños">
+                            <a className="nav-link" href="#niños" onClick={(e) => goToSection(e, 'niños')}>
                                 Niños
                             </a>
                         </li>
